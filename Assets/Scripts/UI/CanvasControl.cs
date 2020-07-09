@@ -30,6 +30,7 @@ public class CanvasControl : MonoBehaviour
 
     public void AbrirPanelEnd(int starsNumber)
     {
+        FindObjectOfType<EndMessages>().SetMessage(starsNumber);
         Sequence showStarsSequence = DOTween.Sequence();
         showStarsSequence.Append(panelEnd.transform.DOScale(Vector3.one, 1));
         //foreach(GameObject star in stars)

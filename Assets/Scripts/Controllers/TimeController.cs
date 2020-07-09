@@ -11,6 +11,8 @@ public class TimeController : MonoBehaviour
     /// Toma la cantidad de veces que he dibujado y la convierte en 1 2 o 3 estrellas
     /// </summary>
     private int score;
+
+    public TMPro.TextMeshProUGUI timerText;
     private void Start()
     {
         Time.timeScale = 0;
@@ -39,6 +41,7 @@ public class TimeController : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         count++;
+        timerText.text = "Time left: " + (matchTime - count).ToString();
         StartCoroutine(Timer());
         if(count >= matchTime)
         {
